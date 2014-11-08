@@ -5,9 +5,9 @@
  	<title>JavaScript - Gissa det hemliga talet</title>
 </head>
     <body>
-        <h1>Gissa det hemliga talet!</h1>
+        <h1>Gissa det hemliga talet mellan 1-100!</h1>
         <a href="../index.html">&lt;--- Tillbaka</a>
- 		<form>
+ 		<form id="myForm">  <!-- Added an ID to the form in order to reset the input field after each attempt. --> 
  			<input type="text" id="number" /> <input id="send" type="submit" value="gissa" />
  			<p id="value"></p>
 		</form>       
