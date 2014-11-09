@@ -6,14 +6,26 @@ window.onload = function(){
 	var convertString = function(str){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
-
-
-
-
-
-
+		// Vid fel, kasta ett undantag med ett meddelande till användaren.
+		
+		var convertStr = "";
+		
+		if(isNaN (str) && str.length > 0){
+			
+			for (var i = 0; i < str.length; i += 1){
+				
+				if(str.charAt(i) == str.charAt(i).toUpperCase()){
+					convertStr += str.charAt(i).replace("A","#").toLowerCase();
+				}
+				else{
+					convertStr += str.charAt(i).replace("a","#").toUpperCase();
+				}
+			}
+			return convertStr;
+		}
+		else{
+			throw new Error("Vänligen ange något att omvandla och du kan inte ange enbart siffror eller blanksteg.");
+		}
 	};
 	// ------------------------------------------------------------------------------
 
@@ -22,6 +34,8 @@ window.onload = function(){
 	var p = document.querySelector("#value"); // Referens till DOM-noden med id="#value"
 	var input = document.querySelector("#string");
 	var submit = document.querySelector("#send");
+	
+	input.focus();
 
 	// Vi kopplar en eventhanterare till formulärets skickaknapp som kör en anonym funktion.
 	submit.addEventListener("click", function(e){
@@ -30,7 +44,7 @@ window.onload = function(){
 		p.classList.remove( "error");
 
 		try {
-			var answer = convertString(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
+			var answer = convertString(input.value); // Läser in texten från textrutan och skickar till funktionen "convertString"
 			p.innerHTML = answer;		// Skriver ut texten från arrayen som skapats i funktionen.	
 		} catch (error){
 			p.classList.add( "error"); // Växla CSS-klass, IE10+
@@ -38,7 +52,5 @@ window.onload = function(){
 		}
 	
 	});
-
-
 
 };
