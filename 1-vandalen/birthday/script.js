@@ -2,15 +2,33 @@
 
 window.onload = function(){
 
-	
 	var birthday = function(date){
-		
-
-
-			// Din kod här.
-
-
-
+	var userDate = new Date(date);
+	var currentDate = new Date();
+	var daysTilNextBd;
+	
+	// Makes sure the user input isn't empty, can be read as a valid date/format (.toISOString?) and isn't of a future value. 
+	if (!Date.parse(userDate.toString())){
+		throw new Error ("Vänligen ange ett giltigt datum.");
+	}
+	else if (userDate > currentDate){
+		throw new Error ("Kontrollera att du angivit rätt födelsedatum.");	
+	}
+	// Sets the year of the user input to be the same as the current year in order to check if user's bd is to be or has already been this year...
+	userDate.setFullYear(currentDate.getFullYear());
+	
+	//... and in case of the latter, we need to set the bd to be next year.
+	if (userDate < currentDate){
+		userDate.setFullYear(currentDate.getFullYear() + 1);
+	}
+	// Calculates the millisec diff of user's next bd to current date, rounded up and by division converted into a nr of days format. // (switched from Math.floor/round before figuring out and determing this to be the better option in this case)
+	var daysTilNextBd = Math.ceil((userDate.getTime() - currentDate.getTime()) / (24*60*60*1000));
+	
+	// Since using the .ceil-rounding off method above (up to nearest integer), it leaves 365 instead of the BD case value of 0. Corrected with below.
+	if (daysTilNextBd === 365){
+		return 0;
+	}
+	return daysTilNextBd;
 
 	};
 	// ------------------------------------------------------------------------------
