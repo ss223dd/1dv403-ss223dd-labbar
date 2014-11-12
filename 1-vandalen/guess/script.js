@@ -5,12 +5,12 @@ window.onload = function(){
 	var secret = Math.floor( Math.random() * 100)+1; // Randomizes an integer between 1-100.
 	var numberOfGuesses = 0;
 	
-	// I denna funktion ska du skriva koden för att hantera "spelet"
+	// Will put in additional/further comments here later.
+	// Also need to ask more about the d's/don't's/when to use th +op for variables types conversion and whatnot.
+	// Plus the == and ==='s and how to prevent floating number. Want to use isInterger function.
 	var guess = function(number){
-		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
-		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
-		
-		// Plats för förändring.
+		console.log("Det hemliga talet: " + secret);
+		console.log("Du gissade: " + number);
 		
 		if (+number >= 1 && +number <= 100){
 			
@@ -33,13 +33,6 @@ window.onload = function(){
 		else{
 			return [false, number + " är utanför intervallet 0 - 100. Försök igen."];
 		}
-		
-		// Returnera exempelvis: 
-		// [true, "Grattis du vann! Det hemliga talet var X och du behövde Y gissningar för att hitta det."]
-		// [false, "Det hemliga talet är högre!"]
-		// [false, "Det hemliga talet är lägre!"]
-		// [false, "Talet är utanför intervallet 0 - 100"]
-		
 	};
 	
 	// ------------------------------------------------------------------------------
@@ -49,7 +42,7 @@ window.onload = function(){
 	var input = document.querySelector("#number");
 	var submit = document.querySelector("#send");
 	
-	input.focus(); // Set focus to textbox upon page load.
+	input.focus(); // Sets focus to textbox upon page load. 														<<<<----CHANGE!
 	
 	// Vi kopplar en eventhanterare till formulärets skickaknapp som kör en anonym funktion.
 	submit.addEventListener("click", function(e){
@@ -57,7 +50,7 @@ window.onload = function(){
 
 		var answer = guess(input.value); // Läser in talet från textrutan och skickar till funktionen "guess"
 		
-		var form = document.getElementById("myForm"); // Clear textbox after each attempt.
+		var form = document.getElementById("myForm"); // Clears textbox after each attempt. 						<<<<----CHANGE!
 		form.reset();
 		
 		p.innerHTML = answer[1]; // Skriver ut texten från arrayen som skapats i funktionen.

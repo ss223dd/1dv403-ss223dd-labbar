@@ -2,11 +2,10 @@
 
 window.onload = function(){
 
-	// I denna funktion ska du skriva koden för att hantera "spelet"
+	// Will put in additional/further comments here.
+	// Also need to ask more about how to prevent the string from containing numbers and special characters.
+	// Furthermore why I can't get the typeof-op to work very well in the conditions instead of those "isNaN's".
 	var convertString = function(str){
-		// Plats för förändring.		
-		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren.
 		
 		var convertStr = "";
 		
@@ -35,7 +34,7 @@ window.onload = function(){
 	var input = document.querySelector("#string");
 	var submit = document.querySelector("#send");
 	
-	input.focus();
+	input.focus(); // Set focus to textbox upon page load. 														<<<<----CHANGE!
 
 	// Vi kopplar en eventhanterare till formulärets skickaknapp som kör en anonym funktion.
 	submit.addEventListener("click", function(e){
