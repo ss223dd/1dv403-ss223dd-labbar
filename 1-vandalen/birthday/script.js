@@ -23,8 +23,7 @@ window.onload = function(){
 	if (userDate < currentDate){
 		userDate.setFullYear(currentDate.getFullYear() + 1);
 	}
-	// Calculates the millisec diff of user's next bd to current date, rounded up and by division converted into a nr of days format. 
-	// (switched from Math.floor/round before figuring out and determing this to be the better option in this case)
+	// Calculates the millisec diff of user's next bd to current date, rounded up and converted into a nr of days format.
 	daysTilNextBd = Math.ceil((userDate.getTime() - currentDate.getTime()) / (24*60*60*1000));
 	
 	// Since using the .ceil-rounding off method above (up to nearest integer), 
