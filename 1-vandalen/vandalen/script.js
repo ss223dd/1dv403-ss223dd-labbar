@@ -26,7 +26,39 @@ var makePerson = function(persArr){
     // Star-assignment: No loops (of type: for, while, do while) or conditional statements (if, switch)
     // Implement error handling on obj's (if, switch) making sure they contain valid data, like age being an integer and the name is a string.
 
-	// Din kod här...
+    var names = [];
+	var ages = [];
+	var minAge = 0;
+	var maxAge = 0;
+	var ageSum = 0;
+	var averageAge = 0;
+	var result = {minAge: 0, maxAge: 0, averageAge: 0, names: ""};
+	
+	names = persArr.map(function(persArr){
+	    if (typeof persArr.name !== "string"){
+	        throw new Error (persArr.name + "verkar vara felaktigt angivet då det inte kan tolkas som ett giltigt namn.");
+	    }
+	    else{
+	        return persArr.name;
+	    }
+	});
+	
+	// How to sort swe chars?
+	names.sort().join(", ");
+	
+	ages = persArr.map(function(persArr){
+	    if (persArr.age !== parseInt(persArr.age, 10)){
+	        throw new Error ("Åldern måste vara ett heltal.");
+	    }
+	    else{
+	        return persArr.age;
+	    }
+	});
+	
+	// Sort age and get min/max from array index/length or other method?
+	ages.sort();
+	
+	
 
-}
+};
 
